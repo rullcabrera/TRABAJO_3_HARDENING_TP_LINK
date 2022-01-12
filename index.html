@@ -1,0 +1,291 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>GUÍA HARDENING ROUTER Wi-Fi TP-LINK TL-WR1043ND v4.</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="TRABAJO_3_HARDENING_TP_LINK"
+                  title="GUÍA HARDENING ROUTER Wi-Fi TP-LINK TL-WR1043ND v4."
+                  environment="web"
+                  feedback-link="Enlace github para los issue">
+    
+      <google-codelab-step label="Página 1" duration="2">
+        <p class="image-container"><img alt="Foto0_TPLINK" src="img/d69ee98059a0de49.jpg"></p>
+<p><strong>Esta es una guía que servirá para reforzar aspectos de seguridad </strong><em>&#34;hardening&#34;</em><strong> para este Router Inalámbrico Gigabit N 450Mbps.Por lo tanto espero que sirva para dicho propósito.</strong></p>
+<h2 is-upgraded>OPCIONES WIRELESS</h2>
+<p class="image-container"><img alt="Foto1_TPLINK" src="img/b90be6e2b46f31b9.jpg"></p>
+<ul>
+<li><em>Wireless Network Name:</em> Es recomendable cambiar el nombre de nuestra Wi-Fi:</li>
+</ul>
+<aside class="special"><p>Ej: &#34;WIFI_SEC_1&#34; . Será el SSID que se vea a la hora de buscar nuestra Wi-Fi.</p>
+</aside>
+<p><em>Mode:</em> Para elegir qué protocolos Wi-Fi se van a usar. En este caso, mixto entre los estándar <em>b/g/n</em>. Si supiéramos que todos nuestros dispositivos son compatibles bajo un mismo estándar y hubiera posibilidad de dicha configuración. Se pondría la opción de 1 o 2 estándares solo.</p>
+<p><em>Channel Width y Channel:</em> Con un ancho de <em>20MHz</em> sería suficiente, si es cierto que el ancho de <em>40Mhz</em> conseguimos mayor velocidad, pero un menor alcance. Pero dependiendo de las interferencias que tuviéramos. Sería recomendable dejarlo en Auto. Así, el mismo Router decidirá qué ancho de banda utilizar. Lo mismo, con el canal por donde emitir nuestra red Wi-Fi.</p>
+<p><em>Enable Wireless Router Radio:</em> Sino es totalmente necesario el uso del Wi-Fi. Entonces desactivaremos esta opción, para no emitir una señal Wi-Fi. Porque se decida, que los dispositivos se van a conectar por cable.</p>
+<p><em>Enable SSID Broadcast:</em> Desactivamos está opción, así evitaremos a <em>priori</em> emitir el nombre de nuestra red Wi-Fi para todo el mundo.</p>
+<aside class="warning"><p>Pequeño inconveniente. Tendremos que introducir manualmente el nombre de nuestra Wi-Fi cuando vayamos a conectar un nuevo dispositivo la primera vez.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 2" duration="2">
+        <h2 is-upgraded>OPCIÓN WPS</h2>
+<p class="image-container"><img alt="Foto2_TPLINK" src="img/f1c40e8f802f56c4.jpg"></p>
+<ul>
+<li><em>WPS:</em> Es muy recomendable dejarlo desactivado siempre. O, como mucho usarlo el tiempo imprescindible para conectar rápidamente una serie de dispositivos que queramos tener.</li>
+</ul>
+<aside class="warning"><p>Facilita la conexión a la Wi-Fi, ya que simplemente se hace uso de un PIN de pocos números. Pero es bastante inseguro dejarlo encendido. Puesto que se trata de un pin de solo números, facilmente podría ser crackeable.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 3" duration="2">
+        <h2 is-upgraded>OPCIONES SEGURIDAD WIRELESS</h2>
+<p class="image-container"><img alt="Foto3_TPLINK" src="img/78a68317baea9134.jpg"></p>
+<ul>
+<li><em>Encriptación Wi-Fi:</em> Dependiendo del entorno en el que vayamos a tener nuestra red Wi-Fi, usaremos tipo Personal o Empresa. A día de hoy, ya hay una alta compatibilidad de dispositivos con <em>WPA2</em>. Descartamos <em>WEP</em>.<br><br><ul>
+<li><em>Versión:</em> WPA2-PSK</li>
+<li><em>Encryption:</em> AES</li>
+<li><em>Wireless Password:</em> Elegiremos una clave, que no sea la que viene por defecto. Al menos de unos <strong>14 carácteres</strong><em>mayúsculas/minúsculas, números y caracteres especiales</em>. Otra forma podría ser usar partes de una frase de un libro que te guste y generar una clave.</li>
+<li><em>Group Key Update Period:</em> Si lo dejamos a <strong>0</strong>, no estará activado. Si ponemos <strong>30 (segundos) o más</strong>. Este es el tiempo que queremos que pase para actualizar el grupo de claves; que de manera interna realiza <strong>WPA2</strong>, cuando estamos conectados a nuestra Wi-Fi. Son claves generadas aleatoriamente cada cierto tiempo, diferente a la clave que ponemos la primera vez que nos conectamos a nuestra Wi-Fi.</li>
+</ul>
+</li>
+<li><em>WPA/WPA2 Enterprise:</em> Diferencia, se hace uso de un servidor <strong>RADIUS</strong> de autenticación, cuando se quiere conectar un usuario. Dando un añadido de seguridad, puesto que el servidor se encargará de evaluar si dicho usuario tiene permitido el conectarse a la red Wi-Fi pidiendo un usuario y clave, no que conozcas la clave Wi-Fi solo.<br><br><ul>
+<li><em>Radius Server IP:</em> Dirección IP del servidor RADIUS.</li>
+<li><em>Radius Port:</em> Puerto del servidor <em>1812</em>.</li>
+<li><em>Radius Password:</em> Clave para el servidor RADIUS.</li>
+<li><em>Group Key Update Period:</em> Clave para el servidor RADIUS.</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 4" duration="2">
+        <h2 is-upgraded>OPCIONES FILTRADO DE M.A.C</h2>
+<p class="image-container"><img alt="Foto4_TPLINK" src="img/52b1c0ad8ce6a561.jpg"></p>
+<ul>
+<li><em>Wireless MAC Filtering:</em> Como medida de seguridad, es bueno habilitarlo. Aunque existen técnicas que luego como atacante permiten clonar o suplantar las MAC &#39;s. Es una capa más de seguridad.</li>
+</ul>
+<aside class="special"><p>De está manera <em>&#34;registramos&#34;</em> con la MAC a cada <em>&#34;estación Wi-Fi&#34;</em>, que tengamos interconectada con nuestro <strong>&#34;Router Wi-Fi&#34;</strong>. Sólo podrán conectarse a ella los que figuren en la lista. También, podemos hacerlo a la inversa indicando cuáles no queremos permitir que se conecten.</p>
+</aside>
+<p><em>Filtering Rules:</em></p>
+<ul>
+<li><em>Deny the stations specified by any entries in the list to access:</em> Denegamos las <em>MAC&#39;s</em> que registramos abajo.</li>
+<li><em>Allow the stations specified by any entries in the list to access:</em> Permitimos las <em>MAC&#39;s</em> que registramos abajo.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 5" duration="2">
+        <h2 is-upgraded>OPCIONES GUEST NETWORK WIRELESS</h2>
+<p class="image-container"><img alt="Foto5_TPLINK" src="img/b0247dbfb577ca5e.jpg"></p>
+<ul>
+<li><em>Guest Network Wireless Settings:</em> Este es otro apartado, que si no es totalmente necesario, sería recomendable evitar el habilitarlo. Una red Wi-Fi para invitados. Que permite también que estos puedan acceder a tu red local y habilitar un control del ancho de banda. Según como se configure.</li>
+<li>Un primer apartado similar a la configuración que podemos hacer de nuestra Wi-Fi Principal.</li>
+<li><em>Access Time:</em> Podemos elegir entre 2 maneras:<br><br><ul>
+<li><em>Schedule:</em> Decidimos si todos los días las <em>24h</em> o en un rango de horas concretas. O días concretos las <em>24h</em> o horas en concreto. No queremos que se puedan conectar los invitados.</li>
+<li><em>Timeout:</em> Indicamos las horas y minutos que tendrán los invitados para hacer uso del Wi-Fi, antes de que se les desconecte.</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 6" duration="2">
+        <h2 is-upgraded>OPCIONES DHCP (RESERVA DE DIRECCIONES IP)</h2>
+<p class="image-container"><img alt="Foto6_TPLINK" src="img/88b578694ae296a2.jpg"></p>
+<ul>
+<li><em>DHCP Server:</em> Para habilitar un servidor <strong>DHCP</strong> en nuestro Router Wi-Fi. Servirá <em>IP&#39;s a los dispositivos</em>.</li>
+</ul>
+<aside class="special"><p>Recomendable en el Rango de <em>IP&#39;s</em>, limitarlo a un poco más de los dispositivos que creamos que vamos a tener conectados. No tener un rango muy amplio.</p>
+</aside>
+<p><em>Start IP Address y End IP address:</em> Comienzo y fin del rango de IP&#39;s.</p>
+<ul>
+<li><em>Address Lease Time:</em> Tiempo en minutos que mantenemos una IP.</li>
+<li><em>Default Gateway, Default Domain, Primary DNS, Secondary DNS:</em> Otros datos que queramos configurar cuando un dispositivo reciba una IP del DHCP.</li>
+</ul>
+<aside class="special"><p>Recomendable en el par de <em>DNS&#39;s</em>. Los de <strong>Cloudflare</strong> o un mixto de el propio que tengamos o de nuestra operadora y uno de <strong>CloudFlare</strong>. Default Gateway, indicamos la IP de nuestros Router Wi-Fi.</p>
+</aside>
+<p class="image-container"><img alt="Foto7_TPLINK" src="img/1880043686da8ad3.jpg"></p>
+<ul>
+<li><em>Address Reservation:</em> Otra medida de seguridad y recomendable. Sería el reservar y fuera del rango que de el <strong>DHCP</strong>, una serie de direcciones IP&#39;s que queramos tener configurada en los dispositivos de manera estática. Junto a su <strong>MAC</strong>. Será una capa más, a la hora de posibles ataques maliciosos. Intentando suplantar algún dispositivo importante vía el <strong>DHCP</strong>.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 7" duration="2">
+        <h2 is-upgraded>OPCIONES ALMACENAMIENTO COMPARTIDO; FTP, MEDIA Y PRINT SERVER. Y CUENTAS DE USUARIO</h2>
+<p class="image-container"><img alt="Foto8_TPLINK" src="img/89891032217737bd.jpg"></p>
+<ul>
+<li><em>User Account Management:</em> En este apartado podemos habilitar tanto la compartición de almacenamiento, un servidor <strong>FTP</strong>, de <strong>Media</strong> y de <strong>Impresión</strong>.</li>
+</ul>
+<aside class="warning"><p>Aquello que no sea imprescindible como medida de seguridad lo ideal es deshabilitar completamente. Si vamos a usarlo, en el caso de almacenamiento compartido, habilitarlo con contraseña robusta. En el caso de un servidor <strong>FTP</strong>, no usar su puerto por defecto sino otro y sino es imprescindible no habilitarlo para que se pueda acceder desde Internet. Y que su <em>IP</em> sea reservada y fuera del rango <strong>DHCP</strong>.</p>
+</aside>
+<aside class="special"><p>Tenemos un apartado de administración de cuentas de usuario. Para el acceso a FTP, usar una política de permisos acorde al usuario que vaya a utilizarlo y poner claves robustas.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 8" duration="2">
+        <h2 is-upgraded>PORT TRIGGERING</h2>
+<p class="image-container"><img alt="Foto9_TPLINK" src="img/f6844b92c994db21.jpg"></p>
+<ul>
+<li><em>Port Triggering:</em>  Podemos habilitar puertos, para que ciertos servicios públicos que tengamos activos; como un servidor <strong>FTP</strong>. Equipos fuera de la Red o directamente desde Internet.  Que puedan acceder desde otros equipos.</li>
+</ul>
+<aside class="special"><p>Esto es interesante en casos muy concretos y junto con una buena configuración del firewall o que tengamos habilitado una <strong>DMZ</strong>.</p>
+</aside>
+<aside class="warning"><p>Si no lo estamos usando es mejor deshabilitar los puertos en específico.</p>
+</aside>
+<h2 is-upgraded>CONFIGURACIONES UPnP</h2>
+<p class="image-container"><img alt="Foto10_TPLINK" src="img/30ffebb2c9f0bbc9.jpg"></p>
+<ul>
+<li><em>UPnP:</em> Aquí, podremos activar/desactivar el <em>redireccionamiento</em> de puertos de manera automática, si un dispositivo lo requieren para la comunicación. Para un mejor control, es recomendable realizar apertura de puertos de manera manual.<br>Pero en algunos casos puede ser laborioso. Y usando este protocolo se abren y cierran los puertos según se requieran. Por lo que si usamos bastantes puertos. Podría ser buena medida activar <strong>UPnP</strong>, al menos para aquellos dispositivos o aplicaciones que no tengamos configurado de manera manual.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 9" duration="2">
+        <h2 is-upgraded>OPCIONES DE SEGURIDAD (Opciones Básicas de Seguridad)</h2>
+<p class="image-container"><img alt="Foto11_TPLINK" src="img/f8c04759f732abcc.jpg"></p>
+<ul>
+<li><em>SPI Firewall:</em> Lo dejamos habilitado, realizará un seguimiento de las conexiones de redes que pasan a través del mismo.</li>
+<li><em>VPN:</em> Si queremos habilitar una <strong>VPN</strong> en nuestro Router Wi-Fi. Aunque según las compatibilidades que tengan nuestros dispositivos según los distintos protocolos de VPN.</li>
+</ul>
+<aside class="special"><p>Lo ideal sería habilitar &#34;L2TP con IPSec&#34;, si queremos priorizar la seguridad. PPTP, está en desuso aunque sigue siendo popular su uso.</p>
+</aside>
+<p><em>ALG:</em> Aquí podremos habilitar/deshabilitar la capa de aplicación de la puerta de enlace. Actuará como un servidor de aplicaciones controlando si permite/deniega cierto tráfico hacia un servidor de aplicaciones. <em>FTP, TFTP, RTSP(Transmisión en tiempo real) etc..</em></p>
+<aside class="warning"><p>Si no son necesarios y no tenemos habilitado por ejemplo un servidor FTP. Mejor deshabilitar estás opciones.</p>
+</aside>
+<h2 is-upgraded>OPCIONES DE SEGURIDAD (Opciones Avanzadas de Seguridad)</h2>
+<p class="image-container"><img alt="Foto12_TPLINK" src="img/419e747a21f20bb1.jpg"></p>
+<ul>
+<li><em>Packet Statistics Interval:</em> Podemos asignar un intervalo en segundos. Para luego obtenerlas en una estadística.</li>
+<li><em>DoS Protection:</em> Si queremos una protección contra DoS. La dejamos habilitada.</li>
+<li><em>Filtros:</em> Tenemos varias opciones de filtros para evitar posibles ataques de <strong>&#34;inundación&#34;</strong>.</li>
+</ul>
+<aside class="special"><p>Interesante sería activar alguno de ellos si detectamos que están intentando enviar muchas peticiones de este tipo.</p>
+</aside>
+<p><em>Filtro de &#34;inundación ICMP&#34;, elegimos Packets/Secs</em></p>
+<p><em>Filtro de &#34;inundación UDP&#34;.</em></p>
+<p><em>Filtros de &#34;inundación TCP&#34;.</em></p>
+<p><em>Ignore Ping Packet from WAN Port to Router:</em> Sería recomendable habilitar está opción.</p>
+<p><em>Forbid PIng Packet from LAN Port to Router:</em> Si no queremos poder realizar <em>&#34;pings&#34;</em>, dentro de nuestra LAN. Activaremos la opción.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 10" duration="2">
+        <h2 is-upgraded>ADMINISTRACIÓN LOCAL</h2>
+<p class="image-container"><img alt="Foto13_TPLINK" src="img/b5f0b7b4b8641301.jpg"></p>
+<ul>
+<li><em>Management Rules:</em> Tenemos 2 reglas que permiten que cualquier PC de la LAN, pueda acceder a la administración vía-web del Router. O solo las <strong>MAC&#39;s</strong> que estén listadas.</li>
+</ul>
+<aside class="special"><p>Lo recomendable sería habilitar aquellas <strong>MAC&#39;s</strong> de los <em>PC&#39;s</em> que nos interese. Que deban administrar configuraciones del Router.</p>
+</aside>
+<h2 is-upgraded>ADMINISTRACIÓN REMOTO</h2>
+<p class="image-container"><img alt="Foto14_TPLINK" src="img/d3033f7172264205.jpg"></p>
+<ul>
+<li><em>Remote Management:</em> Podremos configurar para que se pueda acceder de manera remota a administrar nuestro Router. En esta opción elegimos el puerto <em>443</em> en vez <em>80</em>. Que no sea un puerto por defecto. Y en vez de permitir a cualquier IP, pondremos una IP que supiéramos que está autorizada a poder administrarlo de manera remota.</li>
+</ul>
+<h2 is-upgraded>REGLAS ADMINISTRACIÓN ACL&#39;S</h2>
+<p class="image-container"><img alt="Foto15_TPLINK" src="img/438cab388a8b9236.jpg"></p>
+<ul>
+<li><em>Internet Access Control:</em> Habilitamos las listas de control de acceso, para dar una capa más de seguridad a nuestro Router Wi-Fi.</li>
+<li><em>Default Filter Policy:</em> Podemos definir la política de filtro que por defecto se aplicará.<br><br><ul>
+<li>Si permitir paquetes de un host específico que hemos declarado en las <em>ACL&#39;s</em> o denegar específicamente lo que hemos dictado en las <em>ACL&#39;s</em>.</li>
+</ul>
+</li>
+<li><em>Podemos ir definiendo las distintas reglas:</em><ul>
+<li>Indicando un nombre, <strong>host(IP o MAC)</strong>, <strong>host objetivo</strong> y <strong>cuándo se realizará esa ACL</strong>.</li>
+<li><em>Status:</em> Si la tenemos activa o no.</li>
+<li><em>Modify:</em> Podemos editarla o eliminarla.</li>
+</ul>
+</li>
+</ul>
+<aside class="special"><p>Sería buena medida el crear <strong>ACL&#39;s</strong> para controlar quienes queremos que tenga acceso a Internet.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 11" duration="2">
+        <h2 is-upgraded>OPCIONES ENLACE ARP&#39;S</h2>
+<p class="image-container"><img alt="Foto16_TPLINK" src="img/1a1c8685826fda98.jpg"></p>
+<ul>
+<li><em>ARP Binding:</em> Podemos habilitar/deshabilitar, la asignación por <strong>ARP</strong>. Sería una buena medida de seguridad, que nuestros dispositivos que están conectados a la Wi-Fi. Los tengamos identificados por pareja de <em>MAC e IP</em>, de está manera podemos evitar posibles suplantaciones. Y ponerlo algo más difícil, ya que el intento de <em>clonación</em> del conjunto, sería más complicado.</li>
+</ul>
+<h2 is-upgraded>LISTADO ENLACES ARP</h2>
+<p class="image-container"><img alt="Foto18_TPLINK" src="img/ad2c09b07ebb6d09.jpg"></p>
+<h2 is-upgraded>FIRMWARE UPGRADE</h2>
+<p class="image-container"><img alt="Foto19_TPLINK" src="img/d11bce85e32fe0d2.jpg"></p>
+<ul>
+<li><em>Firmware Upgrade:</em> Mantendremos siempre que se pueda actualizado el firmware de nuestro Router Wi-Fi.</li>
+</ul>
+<aside class="special"><p>Al fin y al cabo, es lo que nos permite darnos una serie de opciones que podemos luego configurar para dejar más seguro el dispositivo. Y cerrar posibles vulnerabilidades que tenga el dispositivo.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Página 12" duration="2">
+        <h2 is-upgraded>OPCIONES RESTAURACIÓN DE BACKUPS</h2>
+<p class="image-container"><img alt="Foto20_TPLINK" src="img/139f5148b36052b9.jpg"></p>
+<ul>
+<li><em>Backup &amp; Restore:</em> Mantendremos una política de backups de la configuración de nuestro Router. Por si ocurriera algún percance con ella. Y se tuviera que respaldarla.</li>
+</ul>
+<aside class="special"><p>Para ello es bueno realizarlas, comprobarlas y guardarlas en un lugar seguro que no sea cualquier equipo o dispositivo sin cifrar.</p>
+</aside>
+<h2 is-upgraded>OPCIÓN CLAVE ADMINISTRACIÓN</h2>
+<p class="image-container"><img alt="Foto21_TPLINK" src="img/f55703b8505306c7.jpg"></p>
+<ul>
+<li><em>Clave de administración:</em> Punto importante y muy recomendable. Cambiar tanto el <em>usuario y clave</em> por defecto del Router Wi-Fi, por otras distintas.</li>
+</ul>
+<h2 is-upgraded>SYSTEM LOG</h2>
+<p class="image-container"><img alt="Foto22_TPLINK" src="img/9c45f60f90cc7562.jpg"><img alt="Foto24_TPLINK" src="img/c5b0d3bc62dd4fc6.jpg"></p>
+<ul>
+<li><em>System Log:</em> Una buena medida de seguridad. Sería habilitar el <em>Log del Router</em>.</li>
+</ul>
+<aside class="special"><p>Podemos configurarlo para que nos lleguen ciertos avisos al Correo.</p>
+</aside>
+<p><em>Log Type:DHCP, VPN, SECURITY, FILTER etc...</em></p>
+<p><em>Log Level:ERROR, WARNING, NOTICE y ALL</em></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-01-12T14:51:05-05:00",
+  "id": "TRABAJO_3_HARDENING_TP_LINK",
+  "duration": 24,
+  "title": "GUÍA HARDENING ROUTER Wi-Fi TP-LINK TL-WR1043ND v4.",
+  "summary": "Guía Hardening Router Wi-Fi TP-Link TL-WR1043ND v4",
+  "source": "./TRABAJO_3_HARDENING_TP_LINK/GUIA_HARDENING_WIFI_TPLINK_ROUTER_TL_WR1043ND_v4.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "Enlace github para los issue",
+  "url": "TRABAJO_3_HARDENING_TP_LINK"
+}
